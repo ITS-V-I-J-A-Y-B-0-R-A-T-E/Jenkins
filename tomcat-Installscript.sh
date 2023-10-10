@@ -17,4 +17,4 @@ wget -P $DOWNLOAD_DIR https://downloads.apache.org/tomcat/tomcat-9/v${TOMCAT_VER
 tar -zxvf ${DOWNLOAD_DIR}/apache-tomcat-${TOMCAT_VERSION}.tar.gz -C $EXTRACT_DIR
 
 # Start Tomcat
-${EXTRACT_DIR}/apache-tomcat-${TOMCAT_VERSION}/bin/startup.sh
+${EXTRACT_DIR}/apache-tomcat-${TOMCAT_VERSION}/apache-tomcat-${TOMCAT_VERSION}/bin/startup.sh
