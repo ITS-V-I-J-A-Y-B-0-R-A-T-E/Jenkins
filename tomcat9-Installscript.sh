@@ -13,7 +13,7 @@ else
     echo "****Cannot create folder --> /home/ncs/Downloads/TOMCATINSTALLATION/Jenkins/DownloadTomcatFiles"
 fi
 
-# Create the extract directory if it doesn't exist
+# Create the extract directory if it doesn't exis
 mkdir -p $EXTRACT_DIR
 if [ $? -eq 0 ]; then
     echo "EXTARCTING DIRECTORY CREATED --> /home/ncs/Downloads/TOMCATINSTALLATION/Jenkins/DownloadTomcatFiles"
