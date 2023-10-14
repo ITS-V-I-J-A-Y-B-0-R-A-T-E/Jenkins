@@ -12,16 +12,17 @@ pipeline {
 
         stage('Build-Stage') {
             steps {
-                echo "We are in ******Build-Stage******,Executing Tomcat script file Kept in Jenkins Server"
+                echo "We are in ******Build-Stage******, Executing Tomcat script file Kept in Jenkins Server"
                 script {
+                    sh 'chmod +x tomcat9-Installscript.sh' // changing the permission of the script
                     def exitCode = sh(script: './tomcat9-Installscript.sh', returnStatus: true)
                     if (exitCode == 0) {
-                        echo "TOMCAT 9 INSTALLED SUCCESFULLY: ${exitCode}"
+                        echo "TOMCAT 9 INSTALLED SUCCESSFULLY: ${exitCode}"
                     } else {
                         error "TOMCAT INSTALLATION FAILED: ${exitCode}"
                     }
                 }
-                echo "EXITING******Build-Stage******,BUILD COMPLETED"
+                echo "EXITING******Build-Stage******, BUILD COMPLETED"
             }
         }
     }
