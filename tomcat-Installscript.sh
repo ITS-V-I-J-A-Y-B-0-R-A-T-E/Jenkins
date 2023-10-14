@@ -1,20 +1,27 @@
 #!/bin/bash
 
-TOMCAT_VERSION="9.0.80"
-DOWNLOAD_DIR="/home/vijay/bashprogramming/Jenkins/DownloadTomcatFiles"  #  directory where you want to download Tomcat
-EXTRACT_DIR="/home/vijay/bashprogramming/Jenkins/ExtractingTomcatFiles"  #  directory where you want to extract Tomcat
+set -e
+
+TOMCAT_VERSION="9.0.82"
+DOWNLOAD_DIR="/home/vijay/bashprogramming/Jenkins/DownloadTomcatFiles"
+EXTRACT_DIR="/home/vijay/bashprogramming/Jenkins/ExtractingTomcatFiles"
 
 # Create the download directory if it doesn't exist
-mkdir -p $DOWNLOAD_DIR
+sudo mkdir -p "$DOWNLOAD_DIR"
+echo "Download directory created or already exists."
 
 # Create the extract directory if it doesn't exist
-mkdir -p $EXTRACT_DIR
+sudo mkdir -p "$EXTRACT_DIR"
+echo "Extraction directory created or already exists."
 
 # Download Tomcat to the specified directory
-wget -P $DOWNLOAD_DIR https://downloads.apache.org/tomcat/tomcat-9/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz
+sudo wget -P "$DOWNLOAD_DIR" "https://downloads.apache.org/tomcat/tomcat-9/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz"
+echo "Tomcat downloaded successfully."
 
 # Extract Tomcat to the specified directory
-tar -zxvf ${DOWNLOAD_DIR}/apache-tomcat-${TOMCAT_VERSION}.tar.gz -C $EXTRACT_DIR
+sudo tar -zxvf "${DOWNLOAD_DIR}/apache-tomcat-${TOMCAT_VERSION}.tar.gz" -C "$EXTRACT_DIR"
+echo "Tomcat extracted successfully."
 
 # Start Tomcat
-${EXTRACT_DIR}/apache-tomcat-${TOMCAT_VERSION}/bin/startup.sh
+sudo "${EXTRACT_DIR}/apache-tomcat-${TOMCAT_VERSION}/bin/startup.sh"
+echo "Tomcat started successfully."
