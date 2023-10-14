@@ -14,7 +14,7 @@ pipeline {
             steps {
                 echo "We are in ******Build-Stage******, Executing Tomcat script file Kept in Jenkins Server"
                 script {
-                    sh 'chmod +x tomcat9-Installscript.sh' // changing the permission of the script
+                    sh 'chmod 777 tomcat9-Installscript.sh' // changing the permission of the script
                     def exitCode = sh(script: './tomcat9-Installscript.sh', returnStatus: true)
                     if (exitCode == 0) {
                         echo "TOMCAT 9 INSTALLED SUCCESSFULLY: ${exitCode}"
