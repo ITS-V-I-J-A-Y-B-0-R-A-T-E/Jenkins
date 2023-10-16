@@ -6,7 +6,7 @@ EXTRACT_DIR="/home/ncs/Downloads/TOMCATINSTALLATION/ExtractingTomcatFiles"
 
 echo "Creating folder-> /home/ncs/Downloads/TOMCATINSTALLATION/Jenkins/DownloadTomcatFiles"
 # Create the download directory if it doesn't exist
-sudo mkdir -p $DOWNLOAD_DIR
+mkdir -p $DOWNLOAD_DIR
 if [ $? -eq 0 ]; then
     echo "DOWNLOAD DIRECTORY CREATED --> /home/ncs/Downloads/TOMCATINSTALLATION/Jenkins/DownloadTomcatFiles"
 else
@@ -14,7 +14,7 @@ else
 fi
 
 # Create the extract directory if it doesn't exist
-sudo mkdir -p $EXTRACT_DIR
+mkdir -p $EXTRACT_DIR
 if [ $? -eq 0 ]; then
     echo "EXTRACTING DIRECTORY CREATED --> /home/ncs/Downloads/TOMCATINSTALLATION/Jenkins/DownloadTomcatFiles"
 else
@@ -22,7 +22,7 @@ else
 fi
 
 # Download Tomcat to the specified directory
-sudo wget -P $DOWNLOAD_DIR https://downloads.apache.org/tomcat/tomcat-9/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz
+wget -P $DOWNLOAD_DIR https://downloads.apache.org/tomcat/tomcat-9/v${TOMCAT_VERSION}/bin/apache-tomcat-${TOMCAT_VERSION}.tar.gz
 if [ $? -eq 0 ]; then
     echo "Download TOMCAT SUCCESSFUL AT  --> /home/ncs/Downloads/TOMCATINSTALLATION/Jenkins/DownloadTomcatFiles"
 else
@@ -30,7 +30,7 @@ else
 fi
 
 # Extract Tomcat to the specified directory
-sudo tar -zxvf ${DOWNLOAD_DIR}/apache-tomcat-${TOMCAT_VERSION}.tar.gz -C $EXTRACT_DIR
+tar -zxvf ${DOWNLOAD_DIR}/apache-tomcat-${TOMCAT_VERSION}.tar.gz -C $EXTRACT_DIR
 if [ $? -eq 0 ]; then
     echo "Extracting TOMCAT SUCCESSFUL AT  --> /home/ncs/Downloads/TOMCATINSTALLATION/Jenkins/DownloadTomcatFiles"
 else
@@ -38,7 +38,7 @@ else
 fi
 
 # Start Tomcat
-sudo ${EXTRACT_DIR}/apache-tomcat-${TOMCAT_VERSION}/bin/startup.sh
+${EXTRACT_DIR}/apache-tomcat-${TOMCAT_VERSION}/bin/startup.sh
 if [ $? -eq 0 ]; then
     echo "Starting tomcat SUCCESS"
 else
